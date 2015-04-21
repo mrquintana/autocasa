@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>AUTOCASA</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+<script src="js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="js/jquery.dropotron.min.js"
+	th:src="@{/js/jquery.dropotron.min.js}"></script>
+<script src="js/skel.min.js" th:src="@{/js/skel.min.js}"></script>
+<script src="js/skel-layers.min.js" th:src="@{/js/skel-layers.min.js}"></script>
+<script src="js/init.js" th:src="@{/js/init.js}"></script>
+<noscript>
+	<link rel="stylesheet" href="css/skel.css" th:href="@{/css/skel.css}" />
+	<link rel="stylesheet" href="css/style.css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" href="css/style-desktop.css"
+		th:href="@{/css/style-desktop.css}" />
+</noscript>
+<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+</head>
+<body class="homepage">
+
+	<!-- Header -->
+	<div id="header-wrapper">
+		<div class="container">
+			<!-- Header -->
+			<div th:replace="fragments/general/header :: header"></div>
+		</div>
+	</div>
+	<!-- Main Wrapper -->
+	<div id="main-wrapper">
+		<div class="wrapper style2">
+			<div class="inner">
+
+				<!-- Feature 2 -->
+				<section class="container box feature2">
+					<div class="row">
+						<div class="6u">
+							<section>
+								<header class="major">
+									<h2><i class="medium icon fa-car"></i>	Autos</h2>
+								</header>
+								<p>Presiona el siguiente boton para buscar el automovil
+									segun el criterio que selecciones. Recuerda contactar al
+									vendedor y tomar especial atencion a precios muy bajos y
+									extraños.</p>
+								<footer>
+									<a href="#" class="button medium icon fa-arrow-right">Buscar</a>
+								</footer>
+							</section>
+						</div>
+						<div class="6u">
+							<section>
+								<header class="major">
+									<h2><i class="medium icon fa-home"></i>	Casas</h2>
+								</header>
+								<p>Presiona el siguiente boton para buscar la casa segun el
+									criterio que selecciones. Recuerda contactar al vendedor y
+									tomar especial atencion a precios muy bajos y extraños.</p>
+								<footer>
+									<a href="#" class="button medium alt icon fa-arrow-right">Buscar</a>
+								</footer>
+							</section>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+		<div class="wrapper style3">
+			<div class="inner">
+				<div class="container">
+					<div class="row">
+						<div class="8u">
+
+							<!-- Article list -->
+							<section class="box article-list">
+								<h2 class="icon fa-file-text-o">Publicaciones recientes</h2>
+
+								<!-- Excerpt -->
+								<article class="box excerpt">
+									<a href="#" class="image left"><img src="images/pic04.jpg"
+										alt="" /></a>
+									<div>
+										<header>
+											<span class="date">July 24</span>
+											<h3>
+												<a href="#">jetta mk6 2011, sport</a>
+											</h3>
+										</header>
+										<p>Jetta MK6 2011 piel, buenas condiciones, todo pagado.</p>
+									</div>
+								</article>
+
+								<!-- Excerpt -->
+								<article class="box excerpt">
+									<a href="#" class="image left"><img src="images/pic05.jpg"
+										alt="" /></a>
+									<div>
+										<header>
+											<span class="date">July 18</span>
+											<h3>
+												<a href="#">golf gti 2015</a>
+											</h3>
+										</header>
+										<p>Practicamente nuevo, todo pagado.</p>
+									</div>
+								</article>
+
+								<!-- Excerpt -->
+								<article class="box excerpt">
+									<a href="#" class="image left"><img src="images/pic06.jpg"
+										alt="" /></a>
+									<div>
+										<header>
+											<span class="date">July 14</span>
+											<h3>
+												<a href="#">Bocho 1999 std, A/C</a>
+											</h3>
+										</header>
+										<p>No le duele nada, todo pagado al 2015.</p>
+									</div>
+								</article>
+
+							</section>
+						</div>
+						<div class="4u">
+
+							<!-- Spotlight -->
+							<section class="box spotlight">
+								<h2 class="icon fa-file-text-o">Patrocinados</h2>
+								<article>
+									<a href="#" class="image featured"><img
+										src="images/pic07.jpg" alt=""></a>
+									<header>
+										<h3>
+											<a href="#">BMW X6</a>
+										</h3>
+										<p>2015, SERIE M</p>
+									</header>
+									<p>Excelente camioneta.</p>
+									<p>La vendo por que me voy a vivir lejos.</p>
+									<footer>
+										<a href="#" class="button alt icon fa-file-o">Ver mas</a>
+									</footer>
+								</article>
+							</section>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer Wrapper -->
+	<div th:replace="fragments/general/footer :: footer">
+</body>
+</html>
