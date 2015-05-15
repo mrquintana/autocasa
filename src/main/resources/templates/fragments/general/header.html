@@ -1,33 +1,51 @@
-<header id="header" th:fragment="header">
-	<div class="inner">
+<!-- Navigation -->
+    <header th:fragment="header">
+        <nav class="navbar navbar-inverse navbar-fixed-top cbp-af-header" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">AUTOCASA.</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/about">Acerca</a>
+                        </li>
+                        <li><a href="/shop"><i class="fa fa-car"></i> Autos</a>
+                        </li>
+                        <li><a href="/#"><i class="fa fa-home"></i> Casas</a>
+                        </li>
 
-		<!-- Logo -->
-		<h1>
-			<a href="index.html" id="logo">AUTOCASA</a>
-		</h1>
-
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li class="current_page_item"><a href="index.html"
-					th:href="@{/index.html}">Inicio</a></li>
-				<li><a href="">Casas</a>
-					<ul>
-						<li><a href="#">Rentas</a></li>
-						<li><a href="#">Ventas</a></li>
-						<li><a href="">Departamentos ></a>
-							<ul>
-								<li><a href="#">Personales</a></li>
-								<li><a href="#">Familiares</a></li>
-								<li><a href="#">Estudiantes</a></li>
-								<li><a href="#">Vacasiones</a></li>
-							</ul></li>
-					</ul></li>
-				<li><a href="left-sidebar.html">Autos</a></li>
-				<li><a href="right-sidebar.html">Contacto</a></li>
-				<li><a href="no-sidebar.html">Iniciar Sesion</a></li>
-			</ul>
-		</nav>
-
-	</div>
-</header>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Otros <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <!--<li>
+                                    <a href="full-width.html">Full Width Page</a>
+                                </li>
+                                <li>
+                                    <a href="sidebar.html">Sidebar Page</a>
+                                </li>
+                                <li>
+                                    <a href="404.html">404</a>
+                                </li>-->
+                                <li>
+                                    <a href="/faq">Preguntas Frecuentes</a>
+                                </li>
+                                <li>
+                                    <a href="/contact">Contacto</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+    </header>

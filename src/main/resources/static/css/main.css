@@ -1,0 +1,129 @@
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    padding-top: 125px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.navbar-brand{
+   /* font-family: 'Fira Sans', sans-serif;*/
+    font-size: 2em;
+    font-weight: 900;
+    font-kerning: normal;
+}
+.navbar-inverse .navbar-brand {
+  color: azure;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: azure;
+}
+.navbar{
+    margin-bottom: 0px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.navbar{
+    padding: 30px 15px;
+}
+
+ul#myTab {
+  font-size: x-large;
+}
+
+.cbp-af-header-shrink{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    opacity: 0.9;
+}
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/* Home Page Carousel */
+
+header.carousel {
+    height: 50%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+/* Elements Styles               */
+
+.find-button{
+    border: 1px solid #0f97f9;
+    color: #0f97f9;
+}
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+}
