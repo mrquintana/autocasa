@@ -16,7 +16,7 @@
 		href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900' rel='stylesheet' type='text/css'>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/fbootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="css/main.css" rel="stylesheet">
@@ -24,8 +24,8 @@
 	<!-- Custom Fonts -->
 	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-	<link
-		href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+	
 	<!-- Custom CSS -->
 	<link href="css/shop-homepage.css" rel="stylesheet">
 </noscript>
@@ -47,7 +47,20 @@
 
 	<!-- Page Content -->
 	<div class="container">
-
+		<!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Resultado de Busqueda
+                    <small>.</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Inicio</a>
+                    </li>
+                    <li class="active">Busqueda</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
 		<style>
 		.interestFigure{
 			border-radius: 24px 24px 24px 24px;
@@ -56,28 +69,29 @@
 			border: 0px solid #000000;
 		}
 		</style>
+		
 		<div class="row">
 			<div class="col-md-3">
                 <div class="row" style="padding: 10px;">
                 	<div class="row" style="padding: 10px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;">
-	                	<strong>REDEFINE TU BUSQUEDA</strong>
+	                	<strong>TU BUSQUEDA</strong>
 						<div th:replace="fragments/filters/car :: car-filter"></div>
 					</div>
 					<div class="row" >
 					<figure class="interestFigure">
-						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;">
+						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" class="img-thumbnail">
 						<figcaption>Altima 2005, $65,000</figcaption>
 					</figure>
 					</div>
 					<div class="row" >
 					<figure class="interestFigure">
-						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;">
+						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" class="img-thumbnail">
 						<figcaption>Tsuru 2016, $260,000</figcaption>
 					</figure>
 					</div>
 					<div class="row" >
 					<figure class="interestFigure">
-						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;">
+						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" class="img-thumbnail">
 						<figcaption>Mercedez Benz 1990, $24,000</figcaption>
 					</figure>
 					</div>
@@ -85,11 +99,11 @@
 			</div>
 			<div class="col-md-9">
 				<div class="row">
-					<div class="col-sm-6 col-lg-6 col-md-6">
+					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<a href="/item"><img src="img/jetta2.jpg" alt=""></a>
+							<a href="/item"><img src="img/jetta2.jpg" alt="" class="img-thumbnail"></a>
 							<div class="caption">
-								<h4 class="pull-right"><strong>$170,000</strong></h4>
+								<h4 class="pull-right"><em>$170,000</em></h4>
 								<h4>
 									<a href="/item">Jetta 2011 MK6</a>
 								</h4>
@@ -100,13 +114,13 @@
 						</div>
 					</div>
 
-					<div class="col-sm-6 col-lg-6 col-md-6">
+					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="http://placehold.it/320x207" alt="">
+							<img src="http://placehold.it/320x207" alt="" class="img-thumbnail">
 							<div class="caption">
-								<h4 class="pull-right">$170,000</h4>
+								<h4 class="pull-right"><em>$170,000</em></h4>
 								<h4>
-									<a href="#">Jetta 2011 MK6</a>
+									<a href="#">Chevy</a>
 								</h4>
 								<p>Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
@@ -116,58 +130,52 @@
 						</div>
 					</div>
 
-					<div class="col-sm-6 col-lg-6 col-md-6">
+					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="http://placehold.it/320x150" alt="">
+							<img src="http://placehold.it/320x207" alt="" class="img-thumbnail">
 							<div class="caption">
-								<h4 class="pull-right">$170,000</h4>
+								<h4 class="pull-right">$590,000</h4>
 								<h4>
-									<a href="#">Jetta 2011 MK6</a>
+									<a href="#">Audi A5</a>
 								</h4>
 								<p>Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
 									unidad.</p>
 							</div>
-
 						</div>
 					</div>
 
-					<div class="col-sm-6 col-lg-6 col-md-6">
+					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="http://placehold.it/320x150" alt="">
+							<img src="http://placehold.it/320x207" alt="" class="img-thumbnail">
 							<div class="caption">
-								<h4 class="pull-right">$170,000</h4>
+								<h4 class="pull-right">$199,000</h4>
 								<h4>
-									<a href="#">Jetta 2011 MK6</a>
+									<a href="#">Golf</a>
 								</h4>
 								<p>Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
 									unidad.</p>
 							</div>
-
 						</div>
 					</div>
 
-					<div class="col-sm-6 col-lg-6 col-md-6">
+					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="http://placehold.it/320x150" alt="">
+							<img src="http://placehold.it/320x207" alt="" class="img-thumbnail">
 							<div class="caption">
-								<h4 class="pull-right">$170,000</h4>
+								<h4 class="pull-right">$80,000</h4>
 								<h4>
-									<a href="#">Jetta 2011 MK6</a>
+									<a href="#">Tsuru</a>
 								</h4>
 								<p>Como nuevo, no le duele nada, servicio recien hecho.
-									Economico, acepto financiamiento con banco Banamex. Tomo
+									Economico, acepto financiamiento con banco HSBC. Tomo
 									unidad.</p>
 							</div>
-
 						</div>
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
 
 	</div>

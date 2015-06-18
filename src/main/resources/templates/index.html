@@ -12,17 +12,18 @@
     <title>AUTOCASA</title>
     <noscript>
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900' rel='stylesheet' type='text/css'>
-
+		
+		
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
+        <link href="css/fbootstrap.min.css" rel="stylesheet">
+		
         <!-- Custom CSS -->
         <link href="css/main.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
         <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+        
     </noscript>
 
 
@@ -184,7 +185,30 @@
     <script src="js/cbpAnimatedHeader.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
     <script type="text/javascript">
-        $('select').select2();
+	    $( document ).ready(function() {
+	    	$('select').select2();
+	    	$('#selectBrand').select2({
+	    		  placeholder: "Marca"
+	    	});
+	    	$('#selectModel').select2({
+	    		  placeholder: "Modelo"
+	    	});
+	    	$('#selectYearMin').select2({
+	    		  placeholder: "Año"
+	    	});
+	    	$('#selectYearMax').select2({
+	    		  placeholder: "Hasta"
+	    	});
+	    	$('#selectPriceMin').select2({
+	    		  placeholder: "Precio"
+	    	});
+	    	
+	    	$('#selectPriceMax').select2({
+	    		  placeholder: "Hasta"
+	    	});
+	    	
+	      })
+        
     </script>
 </body>
 
