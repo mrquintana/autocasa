@@ -10,4 +10,9 @@ public class ShopCtrl {
 	public String showShop() {
 		return "shop";
 	}
+	
+	@RequestMapping(value= {"/shop/h"})
+	public String showShopH() {
+		return "shop-h";
+	}
 }
