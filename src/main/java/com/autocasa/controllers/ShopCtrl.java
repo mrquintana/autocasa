@@ -11,8 +11,8 @@ public class ShopCtrl {
 		return "shop";
 	}
 	
-	@RequestMapping(value= {"/shop/h"})
+	@RequestMapping(value= {"/shoph"})
 	public String showShopH() {
-		return "shop-h";
+		return "shop_h";
 	}
 }

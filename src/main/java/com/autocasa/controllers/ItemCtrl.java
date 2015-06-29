@@ -10,4 +10,9 @@ public class ItemCtrl {
 	public String showItem() {
 		return "item";
 	}
+	
+	@RequestMapping(value= {"/itemh"})
+	public String showItemh() {
+		return "item_h";
+	}
 }
