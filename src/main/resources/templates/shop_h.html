@@ -67,31 +67,51 @@
 		<div class="row">
 			<div class="col-md-3">
                 <div class="row" style="padding: 10px;">
-                	<div class="row" style="padding: 10px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;">
+                	<div class="row" style="padding: 10px; margin-bottom:20px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;">
 	                	<strong>TU BUSQUEDA</strong>
-						<div th:replace="fragments/filters/car :: car-filter"></div>
+						<div th:replace="fragments/filters/house :: house-filter"></div>
 					</div>
-					<div class="row" >
+					<header><strong>Te podria interesar... </strong></header>
+					<div class="row" style="border:1px dotted grey;background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
 					<figure class="interestFigure">
-						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" class="img-thumbnail">
-						<figcaption>Riveras de San Fco. 3 Recamaras, $650,000</figcaption>
+						<img src="img/home1.jpg" alt="" style="width: 100%; margin: 0 auto; padding: 10px;"">
+						<figcaption><span class="label label-info">Renta</span> Riveras de San Fco. 3 Recamaras, $650,000</figcaption>
 					</figure>
 					</div>
-					<div class="row" >
+					<div class="row" style="border:1px dotted grey;background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
 					<figure class="interestFigure">
-						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" class="img-thumbnail">
-						<figcaption>San Isabel. 3 Recamaras, $260,000</figcaption>
+						<img src="img/home3.jpg" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
+						<figcaption><span class="label label-danger">Venta</span> San Isabel. 3 Recamaras, $260,000</figcaption>
 					</figure>
 					</div>
-					<div class="row" >
+					<div class="row" style="border:1px dotted grey;background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px; padding: 5px;">
 					<figure class="interestFigure">
-						<img src="http://placehold.it/190x150" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" class="img-thumbnail">
-						<figcaption>Santa Ana 6 Recamaras, $9,240,000</figcaption>
+						<img src="img/home7.jpg" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
+						<figcaption><span class="label label-danger">Venta</span> Santa Ana 6 Recamaras, $9,240,000</figcaption>
 					</figure>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-9">
+				<nav>
+					  <ul class="pagination">
+					    <li>
+					      <a href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="active"><a href="#">1</a></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
+					    <li><a href="#">4</a></li>
+					    <li><a href="#">5</a></li>
+					    <li>
+					      <a href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
 				<div class="row">
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
@@ -99,7 +119,7 @@
 							<div class="caption">
 								<h4 class="pull-right"><em>$2,170,000</em></h4>
 								<h4>
-									<a href="/item"><span class="label label-danger">Venta</span></a>
+									<a href="/item"> <span class="label label-danger">Venta</span></a>
 								</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -115,7 +135,7 @@
 							<div class="caption">
 								<h4 class="pull-right"><em>$1,170,000</em></h4>
 								<h4>
-									<a href="#"><span class="label label-danger">Venta</span></a>
+									<a href="#"> <span class="label label-danger">Venta</span></a>
 								</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -131,7 +151,7 @@
 							<div class="caption">
 								<h4 class="pull-right">$90,000</h4>
 								<h4>
-									<a href="#"><span class="label label-info">Renta</span></a>
+									<a href="#"> <span class="label label-info">Renta</span></a>
 								</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -146,7 +166,7 @@
 							<div class="caption">
 								<h4 class="pull-right">$19,000</h4>
 								<h4>
-									<a href="#"><span class="label label-info">Renta</span></a>
+									<a href="#"> <span class="label label-info">Renta</span></a>
 								</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -161,7 +181,7 @@
 							<div class="caption">
 								<h4 class="pull-right">$9,080,000</h4>
 								<h4>
-									<a href="#"><span class="label label-danger">Venta</span></a>
+									<a href="#"> <span class="label label-danger">Venta</span></a>
 								</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -170,7 +190,27 @@
 							</div>
 						</div>
 					</div>
+					<nav>
+				  <ul class="pagination">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li class="active"><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
 				</div>
+				
 			</div>
 		</div>
 	<!-- /.container -->
