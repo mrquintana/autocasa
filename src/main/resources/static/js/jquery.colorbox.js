@@ -58,7 +58,7 @@
 		retinaSuffix: '@2x.$1',
 
 		// internationalization
-		current: "image {current} of {total}",
+		current: "{current}/{total}",
 		previous: "previous",
 		next: "next",
 		close: "close",
@@ -483,6 +483,7 @@
 				$title = $tag(div, "Title"),
 				$current = $tag(div, "Current"),
 				$prev = $('<button type="button"/>').attr({id:prefix+'Previous'}),
+				//$prev = $('<a href="#" class="btn btn-info btn-lg">m</a>').attr({id:prefix+'Previousi'}),
 				$next = $('<button type="button"/>').attr({id:prefix+'Next'}),
 				$slideshow = $tag('button', "Slideshow"),
 				$loadingOverlay
