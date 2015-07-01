@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Nuevo Articulo - AUTOCASA</title>
+
+    <noscript>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/fbootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/main.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+        <link href="css/dropzone.css" rel="stylesheet" />
+    </noscript>
+
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/dropzone.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <div th:replace="fragments/general/header :: header"></div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Vende/Renta hoy en <strong>AUTOCASA</strong>
+                    <small>.</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+        <div class="row">
+            <div class="col-md-8">
+                <form name="sentMessage" id="newArticleForm" novalidate>
+                	<div class="control-group form-group">
+                        <div class="controls">
+                        	<label>Selecciona que quieres dar a conocer: </label>
+                            <label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="auto" checked="checked"> Auto
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="home"> Casa
+							</label>
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Titulo del articulo:</label>
+                            <input type="text" class="form-control" id="title" required data-validation-required-message="Please enter the title" placeholder="e.g. Jetta MK6 2011">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Precio:</label>
+                            <input type="tel" class="form-control" id="price" required data-validation-required-message="Please enter your phone number." placeholder="e.g. $175,000">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Comentarios del vendedor:</label>
+                            <textarea class="form-control" rows="3" placeholder="Ingresa algun comentario que te ayude a convencer al cliente de tu articulo"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Sube imagenes donde se pueda apreciar claramente tu articulo (minimo 1 imagen, maximo 12 imagenes):</label>
+                            
+                            <div id="articleImages" class="dropzone" style="border-style: dashed;"></div> 
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Etiquetas de tu articulo (opcional)</label>
+                            <input type="tel" class="form-control" id="price" required data-validation-required-message="Please enter your phone number." placeholder="">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Otras caracteristicas (opcional)</label>
+                            <input type="tel" class="form-control" id="price" required data-validation-required-message="Please enter your phone number." placeholder="">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Ubicacion</label>
+                            <input type="tel" class="form-control" id="price" required data-validation-required-message="Please enter your phone number." placeholder="">
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+                    <script type="text/javascript">
+                    $("div#articleImages").dropzone(
+                    		{ 
+                    			url: "/file/post" , 
+                    			dictDefaultMessage: "Arrastra imagenes o dale click en esta area para subir tus imagenes.",
+                    			dictRemoveFile:"Remover",
+                    			addRemoveLinks:{}
+                    		});                   
+					var RecaptchaOptions = {
+					   lang : 'es',
+					};
+					</script>
+                    <div class="g-recaptcha" data-sitekey="6LeKEwETAAAAAB7VkYp46QP4yiuE8xLMYD9ZEgLl" style="margin-bottom: 10px;"></div>
+                    <button type="submit" class="btn btn-primary">Crear nuevo articulo</button>
+                    
+                </form>
+                
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <div th:replace="fragments/general/footer :: footer"></div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/classie.js"></script>
+
+    <!-- Animate the header -->
+    <script src="js/cbpAnimatedHeader.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $('select').select2();
+    </script>
+	
+	
+    <!-- Contact Form JavaScript -->
+    <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    
+
+</body>
+
+</html>
