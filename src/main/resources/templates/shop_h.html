@@ -71,8 +71,9 @@
 	                	<strong>TU BUSQUEDA</strong>
 						<div th:replace="fragments/filters/house :: house-filter"></div>
 					</div>
-					<header><strong>Te podria interesar... </strong></header>
+					
 					<div class="row" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
+					<header><strong>Te podria interesar... </strong></header>
 					<figure class="interestFigure">
 						<img src="img/home1.jpg" alt="" style="width: 100%; margin: 0 auto; padding: 10px;"">
 						<figcaption><span class="label label-info">Renta</span> Riveras de San Fco. 3 Recamaras, $650,000</figcaption>
@@ -93,7 +94,18 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<nav>
+				<div  vertical-align: top;">
+					<label for="selectOrder">Ordenar por: </label>
+					<select class="form-control" id="selectOrder" data-placeholder="Modelo" style="width: 25%;">
+						<option>Mas recientes primero</option>
+						<option>Mas antiguos primero</option>
+						<option>Mas caros primero</option>
+						<option>Mas baratos primero</option>
+						<option>Año mas reciente primero</option>
+						<option>Año mas viejo primero</option>
+					</select>
+				</div>
+				<nav style="display: inline-block;">
 					  <ul class="pagination">
 					    <li>
 					      <a href="#" aria-label="Previous">
@@ -112,6 +124,7 @@
 					    </li>
 					  </ul>
 					</nav>
+					<hr>
 				<div class="row">
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
@@ -131,7 +144,7 @@
 
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="img/home2.jpg" alt="" class="img-thumbnail" style="height: 180px;>
+							<img src="img/home2.jpg" alt="" class="img-thumbnail" style="height: 180px;">
 							<div class="caption">
 								<h4 class="pull-right"><em>$1,170,000</em></h4>
 								<h4>
@@ -144,10 +157,10 @@
 							</div>
 
 						</div>
-
+					</div>
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="img/home3.jpg" alt="" class="img-thumbnail" style="height: 180px;>
+							<img src="img/home3.jpg" alt="" class="img-thumbnail" style="height: 180px;">
 							<div class="caption">
 								<h4 class="pull-right">$90,000</h4>
 								<h4>
@@ -159,10 +172,10 @@
 								Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 							</div>
 						</div>
-
+					</div>
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="img/home4.jpg" alt="" class="img-thumbnail" style="height: 180px;>
+							<img src="img/home4.jpg" alt="" class="img-thumbnail" style="height: 180px;">
 							<div class="caption">
 								<h4 class="pull-right">$19,000</h4>
 								<h4>
@@ -174,10 +187,10 @@
 								Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 							</div>
 						</div>
-
+					</div>
 					<div class="col-sm-4 col-lg-4 col-md-4">
 						<div class="thumbnail">
-							<img src="img/home5.jpg" alt="" class="img-thumbnail" style="height: 180px;>
+							<img src="img/home5.jpg" alt="" class="img-thumbnail" style="height: 180px;">
 							<div class="caption">
 								<h4 class="pull-right">$9,080,000</h4>
 								<h4>
@@ -190,7 +203,8 @@
 							</div>
 						</div>
 					</div>
-					<nav>
+				</div>
+				<nav>
 				  <ul class="pagination">
 				    <li>
 				      <a href="#" aria-label="Previous">
@@ -209,16 +223,12 @@
 				    </li>
 				  </ul>
 				</nav>
-				</div>
-				
 			</div>
 		</div>
 	<!-- /.container -->
 
-	<div class="container">
-
+	<div class="container-fluid">
 		<hr>
-
 		<!-- Footer -->
 		<div th:replace="fragments/general/footer :: footer"></div>
 
