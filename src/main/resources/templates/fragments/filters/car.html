@@ -1,6 +1,9 @@
 <form class="form-horizontal" th:fragment="car-filter" style="margin-bottom: 5px;">
 <script>
-$(document).ready(function() { 
+
+$(document).ready(function() {
+	var itemsBrands = [];
+	//get states data
 	$.getJSON( "data/estados.json", function( data ) {
 			var itemsStates = [];
 		  $.each(data, function( index, value ) {
@@ -10,21 +13,37 @@ $(document).ready(function() {
 			});
 		  $("#selectState").select2({ data: itemsStates });
 		});
+	//allok
 	
 	$.getJSON( "data/marcamodelos.json", function( data ) {
-		var itemsBrands = [];
 	  $.each(data, function( index, value ) {
-		  itemsBrands.push({id:index, text:value.marca});
+		  itemsBrands.push({id:index, text:value.marca, models:value.modelos});
 		});
-	  $("#selectBrand").select2({ data: itemsBrands })
-	  	.on("change", function(e) {
-          console.log($('#selectBrand').val());
-          var result = $.grep(items, function(e){ return e.id == id; });
-      });
+	  $("#selectBrand").select2({ data: itemsBrands });
 	});
-	//selectState
 	
-	
+	$("#selectBrand").select2().on("change", function(e) {
+		if($('#selectBrand').val()){
+		
+		var modelsFromBrands = [];
+		$.each($('#selectBrand').val(), function(element, index){
+			var returnedData = $.grep(itemsBrands, function (e, i) {
+				console.log('e'+element);
+	            return i == element;
+	        });
+			console.log('element'+element);
+			console.log(returnedData);
+			modelsFromBrands = modelsFromBrands.concat(returnedData);
+		});
+		
+        var returnedData = $.grep(itemsBrands, function (element, index) {
+            return index == $('#selectBrand').val();
+        });
+        
+		}else{
+			$("#selectModel").empty();
+		}
+    });
 });
 </script>
 	<div class="form-group">
@@ -37,11 +56,6 @@ $(document).ready(function() {
 	<div class="form-group">
 		<div class="col-xs-12">
 			<select style="width: 100%" class="form-control" id="selectModel" multiple="multiple" data-placeholder="Modelo">
-				<option>*Cualquiera*</option>
-				<option>Jetta</option>
-				<option>Golf</option>
-				<option>C3</option>
-				<option>207</option>
 			</select>
 		</div>
 	</div>
