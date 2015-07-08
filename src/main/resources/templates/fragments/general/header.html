@@ -17,26 +17,24 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/about">Acerca</a>
                         </li>
-                        <li><a href="/shop"><i class="fa fa-car"></i> Autos</a>
+                        <li><a href="/shop"><i class="fa fa-car"></i> Veh&iacute;culos</a>
                         </li>
-                        <li><a href="/shoph"><i class="fa fa-home"></i> Casas</a>
+                        <li><a href="/shoph"><i class="fa fa-home"></i> Inmuebles</a>
                         </li>
                         <li><a href="/register"><i class="fa fa-chevron-circle-up"></i> Registrarme</a>
                         </li>
-                        <li><a href="/login"><i class="fa fa-sign-in"></i> Iniciar Sesi&oacute;n</a>
+                        <!-- Login Modal -->
+						<div th:replace="fragments/general/login :: login"></div>
+                        <li id="linkLoginModal"><a href="#"><i class="fa fa-sign-in"></i> Iniciar Sesi&oacute;n</a>
                         </li>
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> Otros <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <!--<li> <a href="full-width.html">Full Width Page</a> </li>
-                                <li> <a href="sidebar.html">Sidebar Page</a> </li>
-                                <li> <a href="404.html">404</a> </li>-->
                                 <li>
-                                    <a href="#"><i class="fa fa-pencil"></i> Modificar mis Articulos</a>
+                                    <a href="#"><i class="fa fa-pencil"></i> Modificar mis Publicaci&oacute;nes</a>
                                 </li>
                                 <li>
-                                    <a href="/newitem"><i class="fa fa-plus"></i> Crear Articulo</a>
+                                    <a href="/newitem"><i class="fa fa-plus"></i> Crear Publicaci&oacute;n</a>
                                 </li>
                                 <li>
                                     <a href="/faq"><i class="fa fa-question"></i> Preguntas Frecuentes</a>

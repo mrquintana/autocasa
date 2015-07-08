@@ -1,51 +1,5 @@
 <form class="form-horizontal" th:fragment="car-filter" style="margin-bottom: 5px;">
-<script>
-
-$(document).ready(function() {
-	var itemsBrands = [];
-	//get states data
-	$.getJSON( "data/estados.json", function( data ) {
-			var itemsStates = [];
-		  $.each(data, function( index, value ) {
-			  $.each(value, function( iindex, ivalue ) {
-				  itemsStates.push({id:iindex, text:ivalue});
-				});
-			});
-		  $("#selectState").select2({ data: itemsStates });
-		});
-	//allok
-	
-	$.getJSON( "data/marcamodelos.json", function( data ) {
-	  $.each(data, function( index, value ) {
-		  itemsBrands.push({id:index, text:value.marca, models:value.modelos});
-		});
-	  $("#selectBrand").select2({ data: itemsBrands });
-	});
-	
-	$("#selectBrand").select2().on("change", function(e) {
-		if($('#selectBrand').val()){
-		
-		var modelsFromBrands = [];
-		$.each($('#selectBrand').val(), function(element, index){
-			var returnedData = $.grep(itemsBrands, function (e, i) {
-				console.log('e'+element);
-	            return i == element;
-	        });
-			console.log('element'+element);
-			console.log(returnedData);
-			modelsFromBrands = modelsFromBrands.concat(returnedData);
-		});
-		
-        var returnedData = $.grep(itemsBrands, function (element, index) {
-            return index == $('#selectBrand').val();
-        });
-        
-		}else{
-			$("#selectModel").empty();
-		}
-    });
-});
-</script>
+<script src="js/acapp/carfilter.js"></script>
 	<div class="form-group">
 		<div class="col-xs-12">
 			<select style="width: 100%" class="form-control" id="selectBrand" multiple="multiple" data-placeholder="Marca">
@@ -63,21 +17,11 @@ $(document).ready(function() {
 		<div class="col-xs-6">
 			<select style="width: 100%" class="form-control" id="selectYearMin" data-placeholder="A&ntilde;o">
 				<option></option>
-				<option>*Cualquiera*</option>
-				<option>1990</option>
-				<option>2000</option>
-				<option>2011</option>
-				<option>2015</option>
 			</select>
 		</div>
 		<div class="col-xs-6">
 			<select style="width: 100%" class="form-control" id="selectYearMax" data-placeholder="Hasta">
 				<option></option>
-				<option>*Cualquiera*</option>
-				<option>1990</option>
-				<option>2000</option>
-				<option>2011</option>
-				<option>2015</option>
 			</select>
 		</div>
 	</div>
@@ -85,21 +29,11 @@ $(document).ready(function() {
 		<div class="col-xs-6">
 			<select style="width: 100%" class="form-control" id="selectPriceMin" data-placeholder="Precio">
 				<option></option>
-				<option>*Cualquiera*</option>
-				<option>$100,000</option>
-				<option>$200,000</option>
-				<option>$300,000</option>
-				<option>$400,000</option>
 			</select>
 		</div>
 		<div class="col-xs-6">
 			<select style="width: 100%" class="form-control" id="selectPriceMax" data-placeholder="Hasta">
 				<option></option>
-				<option>*Cualquiera*</option>
-				<option>$100,000</option>
-				<option>$200,000</option>
-				<option>$300,000</option>
-				<option>$400,000</option>
 			</select>
 		</div>
 	</div>

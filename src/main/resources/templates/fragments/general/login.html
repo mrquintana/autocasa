@@ -1,0 +1,45 @@
+<!-- Modal -->
+
+
+<div th:fragment="login" class="modal fade" id="myModal" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel">
+	<script>
+		$('#linkLoginModal').click(function() {
+			$('#myModal').modal('toggle');
+		});
+	</script>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Iniciar Sesi&oacute;n</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-body">
+					<form role="form">
+						<fieldset>
+							<div class="form-group">
+								<input class="form-control" placeholder="E-mail" name="email"
+									type="email" autofocus>
+							</div>
+							<div class="form-group">
+								<input class="form-control" placeholder="Password"
+									name="password" type="password" value="">
+							</div>
+							<div class="checkbox">
+								<label> <input name="remember" type="checkbox"
+									value="Remember Me">Recordarme
+								</label>
+							</div>
+							<!-- Change this to a button or input when using this as a form -->
+							<a href="index.html" class="btn btn-lg btn-success btn-block">Entrar</a>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

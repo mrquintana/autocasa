@@ -11,29 +11,24 @@
 
     <title>AUTOCASA</title>
     <script src="js/jquery.js"></script>
-    <noscript>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
-		
-		
-        <!-- Bootstrap Core CSS -->
-        <link href="css/fbootstrap.min.css" rel="stylesheet">
-		
-        <!-- Custom CSS -->
-        <link href="css/main.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
 
-        <!-- Custom Fonts -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-        
-    </noscript>
-	
+    <!-- Bootstrap Core CSS -->
+    <link href="css/fbootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
 </head>
 
 <body>
@@ -44,20 +39,21 @@
         <!-- Tabs -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">¿Que buscas?</h2>
-            </div>
-            <div class="col-lg-12">
+            	<h2 class="page-header">¿Qu&eacute; buscas?</h2>
                 <ul id="myTab" class="nav nav-tabs nav-justified">
-                    <li class="active"><a href="#service-one" data-toggle="tab"><i class="fa fa-car"></i> Autos</a>
+                    <li class="active"><a href="#service-one" data-toggle="tab"><i class="fa fa-car"></i> Vehículos</a>
                     </li>
-                    <li class=""><a href="#service-two" data-toggle="tab"><i class="fa fa-home"></i> Casas</a>
+                    <li class=""><a href="#service-two" data-toggle="tab"><i class="fa fa-home"></i> Inmuebles</a>
                     </li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade active in" id="service-one">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6>Puedes ignorar las configuraciones que desees, para tener un resultado mas ampliio.</h6>
+                            	<div class="alert alert-info alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								  Puedes ignorar partes del filtro, para tener un resultado mas amplio.
+								</div>
                             </div>
                             <div class="col-md-6 col-md-offset-3 panel-body">
                                 <div th:replace="fragments/filters/car :: car-filter"></div>
@@ -67,7 +63,10 @@
                     <div class="tab-pane fade" id="service-two">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6>Puedes ignorar las configuraciones que desees, para tener un resultado mas ampliio.</h6>
+                                <div class="alert alert-info alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								  Puedes ignorar partes del filtro, para tener un resultado mas ampliio.
+								</div>
                             </div>
                             <div class="col-md-6 col-md-offset-3 panel-body">
                                 <div th:replace="fragments/filters/house :: house-filter"></div>
@@ -79,45 +78,79 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="publicacionesRecientes">
             <div class="col-lg-12">
                 <h2 class="page-header">Publicaciones Recientes</h2>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                </a>
-            </div>
+            <div class="row">
+            		<div class="col-sm-3 col-lg-3 col-md-3">
+						<div class="thumbnail">
+							<img src="img/car2.jpg" alt="" class="img-thumbnail" style="height: 180px;">
+							<div class="caption">
+								<h4 class="pull-right"><em>$590,000</em></h4>
+								<h4>
+									<a href="#">Mercedes Benz</a>
+								</h4>
+								<p class="truncate">Como nuevo, no le duele nada, servicio recien hecho.
+									Economico, acepto financiamiento con banco Banamex. Tomo
+									unidad.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-3 col-lg-3 col-md-3">
+						<div class="thumbnail">
+							<img src="img/home2.jpg" alt="" class="img-thumbnail" style="height: 180px;">
+							<div class="caption">
+								<h4 class="pull-right"><em>$1,170,000</em></h4>
+								<h4>
+									<a href="#"> <span class="label label-danger">Venta</span></a>
+								</h4>
+								<p class="truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+								Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+								Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+							</div>
+
+						</div>
+					</div>
+					
+					<div class="col-sm-3 col-lg-3 col-md-3">
+						<div class="thumbnail">
+							<img src="img/home3.jpg" alt="" class="img-thumbnail" style="height: 180px;">
+							<div class="caption">
+								<h4 class="pull-right">$90,000</h4>
+								<h4>
+									<a href="#"> <span class="label label-info">Renta</span></a>
+								</h4>
+								<p class="truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+								Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+								Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-3 col-lg-3 col-md-3">
+						<div class="thumbnail">
+							<a href="/item"><img src="img/jetta2.jpg" alt="" class="img-thumbnail" style="height: 180px;"></a>
+							<div class="caption">
+								<h4 class="pull-right"><em>$170,000</em></h4>
+								<h4>
+									<a href="/item">Jetta 2011 MK6</a>
+								</h4>
+								<p class="truncate">Como nuevo, no le duele nada, servicio recien hecho.
+									Economico, acepto financiamiento con banco Banamex. Tomo
+									unidad.</p>
+							</div>
+						</div>
+					</div>
+				</div>
         </div>
         <!-- /.row -->
 
         <!-- Features Section -->
-        <div class="row">
+        <div class="row" id="paraVendedores">
             <div class="col-lg-12">
                 <h2 class="page-header">Para vendedores</h2>
             </div>
@@ -130,7 +163,8 @@
                     <li>Tu decides cuanto quieres que dure tu publicacion</li>
                     <li>Muchas cosas mas!</li>
                 </ul>
-                <p>AUTOCASA le brinda a vendedores la posibilidad de tener mas organizados sus materiales de venta y llegar a mas personas.</p>
+                <p>AUTOCASA le brinda a vendedores la posibilidad de tener mas organizados sus materiales de venta y 
+                llegar a mas personas.</p>
             </div>
             <div class="col-md-6">
                 <img class="img-responsive" src="http://placehold.it/700x450" alt="">
@@ -141,7 +175,7 @@
         <!-- Features Section -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Para compradores</h2>
+                <h2 class="page-header" id="paraCompradores">Para compradores</h2>
             </div>
             <div class="col-md-6">
                 <p>Busca rapidamente:</p>
@@ -153,7 +187,8 @@
                     <li>Sitio responsivo, facil de usar en dispositivos moviles</li>
                     <li>Muchas cosas mas!</li>
                 </ul>
-                <p>AUTOCASA le brinda a compradores una experiencia limpia, organizada y donde el unico objetivo es el brindarle al comprador un servicio para encontrar comodamente lo que busca.</p>
+                <p>AUTOCASA le brinda a compradores una experiencia limpia, organizada y donde el unico objetivo es el 
+                brindarle al comprador un servicio para encontrar comodamente lo que busca.</p>
             </div>
             <div class="col-md-6">
                 <img class="img-responsive" src="http://placehold.it/700x450" alt="">
@@ -165,10 +200,10 @@
         <div class="well">
             <div class="row">
                 <div class="col-md-8">
-                    <p>Nos interesa tu opinion acerca de AUTOCASA.</p>
+                    <p>Nos interesa tu opinión acerca de AUTOCASA.</p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Contactanos</a>
+                    <a class="btn btn-lg btn-default btn-block" href="/contact">Contactanos</a>
                 </div>
             </div>
         </div>
@@ -184,12 +219,14 @@
 
     <!-- Animate the header -->
     <script src="js/cbpAnimatedHeader.min.js"></script>
+    <script src="js/jQuery.succinct.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
     <script type="text/javascript">
 	    $( document ).ready(function() {
 	    	$('select').select2();
 	    	$('#selectBrand').select2({
-	    		  placeholder: "Marca"
+	    		  placeholder: "Marca",
+	    		  maximumSelectionLength: 5
 	    	});
 	    	$('#selectModel').select2({
 	    		  placeholder: "Modelo"
@@ -208,9 +245,15 @@
 	    		  placeholder: "Hasta"
 	    	});
 	    	
-	      })
+	    	$('.truncate').succinct({
+	    		size:75
+	    	});
+	    	
+	      });
         
     </script>
 </body>
 
 </html>
+
+
