@@ -51,9 +51,9 @@
 				<header style="margin-bottom: 20px;">
 					<div>
 						<h2 style="float: right;">
-							<strong>$170,000</strong>
+							<strong th:text="${publication.price}">$170,000</strong>
 						</h2>
-						<h2 style="float: left;">
+						<h2 style="float: left;" th:text="${publication.title}">
 							Jetta 2011 MK6 Sport 2.5CIL
 						</h2>
 					</div>
@@ -105,7 +105,7 @@
 							<h5>
 								<strong>Comentarios del Vendedor<strong>
 							</h5>
-							<p>El carro acaba de recibir su servicio completo de agencia.
+							<p th:text="${publication.comments}">El carro acaba de recibir su servicio completo de agencia.
 								Nunca chocado. Es bastante ahorrador de gasolina
 								(aproximadamente 11.5l/km en calle). Ningun adeudo, todo pagado
 								hasta la fecha. El cambio de propietario corre por mi parte.</p>

@@ -118,13 +118,13 @@
 					<div th:each="publication: ${publications}" class="col-sm-6 col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<p th:text="'ID:'+${publication.id}"></p>
-							<a href="/item"><img th:src="@{http://placehold.it/240x180}" alt="" class="img-thumbnail" style="height: 180px; width: 250px;"></a>
+							<a th:href="'/item/'+${publication.id}"><img th:src="@{http://placehold.it/280x180}" alt="" class="img-thumbnail" style="height: 180px; width: 280px;"></a>
 							<div class="caption">
 								<h4 class="pull-right"><em th:text="${publication.price}">$170,000</em></h4>
 								<h4>
-									<a href="/item" th:text="${publication.title}" th:class="title-truncate">Jetta 2011 MK6</a>
+									<a th:href="'/item/'+${publication.id}" th:text="${#strings.abbreviate(publication.title, 22)}" th:class="title-truncate">Jetta 2011 MK6</a>
 								</h4>
-								<p th:if="${#strings.length(publication.comments)} gt 0" th:text="${publication.comments}" class="desc-truncate">Como nuevo, no le duele nada, servicio recien hecho.
+								<p th:if="${#strings.length(publication.comments)} gt 0" th:text="${#strings.abbreviate(publication.comments, 150)}">Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
 									unidad.</p>
 								<p th:if="${#strings.length(publication.comments)} == 0">Sin descipci&oacute;n.</p>
@@ -172,18 +172,9 @@
     <!-- Animate the header -->
     <script th:src="@{/js/cbpAnimatedHeader.min.js}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-    <script th:src="@{/js/jQuery.succinct.min.js}"></script>
     <script type="text/javascript">
     $( document ).ready(function() {
         $('select').select2();
-        
-        $('.title-truncate').succinct({
-    		size:20
-    	});
-        
-        $('.desc-truncate').succinct({
-    		size:150
-    	});
     });
     </script>
 
