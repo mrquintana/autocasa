@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head xmlns:th="http://www.thymeleaf.org">
+
+    <title>Acerca - AUTOCASA.</title>
+
+
+</head>
+
+<body>
+
+	<ul th:each="contact: ${contacts}">
+		<li>
+			<span th:text="${contact.id}"></span>
+			<span th:text="${contact.firstName}"></span>
+			<span th:text="${contact.lastName}"></span>
+		</li>
+	</ul>
+    
+
+
+</body>
+
+</html>

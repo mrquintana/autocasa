@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head xmlns:th="http://www.thymeleaf.org">
+<title>Publicaciones - AUTOCASA.</title>
+</head>
+<style>
+#navlist li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 20px;
+}
+
+.not-active {
+   pointer-events: none;
+   cursor: default;
+}
+</style>
+<body>
+	<div id="navcontainer" th:with="someVariable=${someValue}">
+		<ul id="navlist">
+			<div th:switch="${currentIndex}">
+				<div th:case="1">
+					<li><a class="not-active" href="/publications/1">&lt;&lt;</a></li>
+					<li><a class="not-active" th:href="${currentIndex-1}">&lt;</a></li>
+				</div>
+				<div th:case="2">
+					<li><a th:href="${currentIndex-1}">&lt;</a></li>
+				</div>
+				<div th:case="*" >
+					<li><a href="/publications/1">&lt;&lt;</a></li>
+					<li><a th:href="${currentIndex-1}">&lt;</a></li>
+				</div>
+			</div>
+
+			<li th:each="i : ${#numbers.sequence( beginIndex, endIndex)}"><a href="#" th:text="${i}"></a></li>
+			
+			<div th:switch="${currentIndex}">
+				<div th:case="${publications.totalPages}" >
+					<li><a class="not-active" th:href="${currentIndex+1}">&gt;</a></li>
+					<li><a class="not-active" th:href="${publications.totalPages}">&gt;&gt;</a></li>
+				</div>
+				<div th:case="*">
+					<li><a th:href="${currentIndex+1}">&gt;</a></li>
+					<li><a th:href="${publications.totalPages}">&gt;&gt;</a></li>
+				</div>
+			</div>
+		</ul>
+	</div>
+	<ul th:each="publication: ${publications}">
+		<li><span th:text="${publication.id}">empty</span> <span
+			th:text="${publication.price}"></span> <span
+			th:text="${publication.title}"></span> <span
+			th:text="${publication.comments}"></span> <span
+			th:text="${publication.telContacto}"></span> <span
+			th:text="${publication.contacto}"></span> <span
+			th:text="${publication.infoVendedor}"></span></li>
+	</ul>
+</body>
+</html>

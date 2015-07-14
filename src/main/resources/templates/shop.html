@@ -13,20 +13,15 @@
 
 <noscript>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
-
 	<!-- Bootstrap Core CSS -->
-	<link href="css/fbootstrap.min.css" rel="stylesheet">
-
+	<link th:href="@{/css/fbootstrap.min.css}" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link href="css/main.css" rel="stylesheet">
-
+	<link th:href="@{/css/main.css}" rel="stylesheet">
 	<!-- Custom Fonts -->
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+	<link th:href="@{/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
 	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-	
 	<!-- Custom CSS -->
-	<link href="css/shop-homepage.css" rel="stylesheet">
+	<link th:href="@{/css/shop-homepage.css}" rel="stylesheet">
 </noscript>
 
 
@@ -74,19 +69,19 @@
 					<header><strong>Te podria interesar... </strong></header>
 					<div class="row" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
 					<figure class="interestFigure">
-						<img src="img/car1.jpg" alt="" style="width: 100%; margin: 0 auto; padding: 10px;"">
+						<img th:src="@{/img/car1.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;"">
 						<figcaption>Golf GTI, <strong>$65,000</strong></figcaption>
 					</figure>
 					</div>
 					<div class="row" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
 					<figure class="interestFigure">
-						<img src="img/car3.jpg" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
+						<img th:src="@{/img/car3.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
 						<figcaption>Mercedes Benz, <strong>$26,000</strong></figcaption>
 					</figure>
 					</div>
 					<div class="row" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px; padding: 5px;">
 					<figure class="interestFigure">
-						<img src="img/car4.jpg" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
+						<img th:src="@{/img/car4.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
 						<figcaption>BMW, <strong>$240,000</strong></figcaption>
 					</figure>
 					</div>
@@ -107,95 +102,33 @@
 				<nav>
 				  <ul class="pagination">
 				    <li>
-				      <a href="#" aria-label="Previous">
+				      <a th:href="${currentIndex-1}" aria-label="Previous">
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				    </li>
-				    <li class="active"><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
+				    <li th:each="i : ${#numbers.sequence( beginIndex, endIndex)}" th:class="${i==currentIndex}?active:inactive"><a th:href="@{${i}}" th:text="${i}"></a></li>
 				    <li>
-				      <a href="#" aria-label="Next">
+				      <a th:href="${currentIndex+1}" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li>
 				  </ul>
 				</nav>
 				<div class="row" style="margin-left:2px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;">
-					<div class="col-sm-4 col-lg-4 col-md-4">
+					<div th:each="publication: ${publications}" class="col-sm-6 col-lg-6 col-md-6">
 						<div class="thumbnail">
-							<a href="/item"><img src="img/jetta2.jpg" alt="" class="img-thumbnail" style="height: 180px;"></a>
+							<p th:text="'ID:'+${publication.id}"></p>
+							<a href="/item"><img th:src="@{http://placehold.it/240x180}" alt="" class="img-thumbnail" style="height: 180px; width: 250px;"></a>
 							<div class="caption">
-								<h4 class="pull-right"><em>$170,000</em></h4>
+								<h4 class="pull-right"><em th:text="${publication.price}">$170,000</em></h4>
 								<h4>
-									<a href="/item">Jetta 2011 MK6</a>
+									<a href="/item" th:text="${publication.title}" th:class="title-truncate">Jetta 2011 MK6</a>
 								</h4>
-								<p>Como nuevo, no le duele nada, servicio recien hecho.
+								<p th:if="${#strings.length(publication.comments)} gt 0" th:text="${publication.comments}" class="desc-truncate">Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
 									unidad.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<div class="thumbnail">
-							<img src="img/car1.jpg" alt="" class="img-thumbnail" style="height: 180px;">
-							<div class="caption">
-								<h4 class="pull-right"><em>$170,000</em></h4>
-								<h4>
-									<a href="#">Audi A8</a>
-								</h4>
-								<p>Como nuevo, no le duele nada, servicio recien hecho.
-									Economico, acepto financiamiento con banco Banamex. Tomo
-									unidad.</p>
-							</div>
-
-						</div>
-					</div>
-
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<div class="thumbnail">
-							<img src="img/car2.jpg" alt="" class="img-thumbnail" style="height: 180px;">
-							<div class="caption">
-								<h4 class="pull-right"><em>$590,000</em></h4>
-								<h4>
-									<a href="#">Mercedes Benz</a>
-								</h4>
-								<p>Como nuevo, no le duele nada, servicio recien hecho.
-									Economico, acepto financiamiento con banco Banamex. Tomo
-									unidad.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<div class="thumbnail">
-							<img src="img/car3.jpg" alt="" class="img-thumbnail" style="height: 180px;">
-							<div class="caption">
-								<h4 class="pull-right"><em>$199,000</em></h4>
-								<h4>
-									<a href="#">BMW</a>
-								</h4>
-								<p>Como nuevo, no le duele nada, servicio recien hecho.
-									Economico, acepto financiamiento con banco Banamex. Tomo
-									unidad.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-4 col-lg-4 col-md-4">
-						<div class="thumbnail">
-							<img src="img/car4.jpg" alt="" class="img-thumbnail" style="height: 180px;">
-							<div class="caption">
-								<h4 class="pull-right"><em>$80,000</em></h4>
-								<h4>
-									<a href="#">BMW</a>
-								</h4>
-								<p>Como nuevo, no le duele nada, servicio recien hecho.
-									Economico, acepto financiamiento con banco HSBC. Tomo
-									unidad.</p>
+								<p th:if="${#strings.length(publication.comments)} == 0">Sin descipci&oacute;n.</p>
+								
 							</div>
 						</div>
 					</div>
@@ -203,17 +136,13 @@
 				<nav>
 				  <ul class="pagination">
 				    <li>
-				      <a href="#" aria-label="Previous">
+				      <a th:href="${currentIndex-1}" aria-label="Previous">
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				    </li>
-				    <li class="active"><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
+				    <li th:each="i : ${#numbers.sequence( beginIndex, endIndex)}" th:class="${i==currentIndex}?active:inactive"><a th:href="@{${i}}" th:text="${i}"></a></li>
 				    <li>
-				      <a href="#" aria-label="Next">
+				      <a th:href="${currentIndex+1}" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
 				    </li>
@@ -235,16 +164,27 @@
 	</div>
 	<!-- /.container -->
 <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script th:src="@{/js/jquery.js}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/classie.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/classie.js}"></script>
 
     <!-- Animate the header -->
-    <script src="js/cbpAnimatedHeader.min.js"></script>
+    <script th:src="@{/js/cbpAnimatedHeader.min.js}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script th:src="@{/js/jQuery.succinct.min.js}"></script>
     <script type="text/javascript">
+    $( document ).ready(function() {
         $('select').select2();
+        
+        $('.title-truncate').succinct({
+    		size:20
+    	});
+        
+        $('.desc-truncate').succinct({
+    		size:150
+    	});
+    });
     </script>
 
 </body>
