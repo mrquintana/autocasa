@@ -50,11 +50,13 @@
 			<div class="col-md-9" style="background-color: rgba(0,0,0,0.07);">
 				<header style="margin-bottom: 20px;">
 					<div>
-						<h3 th:text="${publication.title}">
+						<h3 th:text="${publication.pageTitleExtended}">
 							Jetta 2011 MK6 Sport 2.5CIL
 						</h3>
 						<h3>
 							<strong th:text="${publication.price}">$170,000</strong>
+							<span>|</span>
+							<strong th:text="${publication.kilometers}">$170,000</strong>
 						</h3>
 						
 					</div>
@@ -63,17 +65,8 @@
 				<div class="thumbnail">
 					<!--  <img class="img-responsive" src="http://placehold.it/800x300" alt=""> -->
 					<div class="row">
-						<div class="col-xs-4">
-							<a class="group3" href="img/jetta1.jpg" title="Subido Junio 19 2015"><img alt="jetta 1" src="img/jetta1.jpg" class="img-thumbnail"></a>
-						</div>
-						<div class="col-xs-4">
-							<a class="group3" href="img/jetta2.jpg" title="Subido Junio 19 2015"><img alt="jetta 2" src="img/jetta2.jpg" class="img-thumbnail"></a>
-						</div>
-						<div class="col-xs-4">
-							<a class="group3" href="img/jetta3.jpg" title="Subido Junio 18 2015"><img alt="jetta 3" src="img/jetta3.jpg" class="img-thumbnail"></a>
-						</div>
-						<div class="col-xs-4">
-							<a class="group3" href="img/jetta4.jpg" title="Subido Junio 15 2015"><img alt="jetta 4" src="img/jetta4.jpg" class="img-thumbnail"></a>
+						<div class="col-xs-4" th:each="image: ${publication.images}">
+							<a class="group3" th:href="@{${image}}" title="Subido Junio 19 2015"><img th:alt="image" th:src="@{${image}}" class="img-thumbnail"></a>
 						</div>
 					</div>
 					<!-- Date/Time -->
@@ -92,13 +85,13 @@
 						<div style="clear: both;"></div>
 					</div>
 
-					<div style="margin: 5px;">
-						<span class="label label-primary">automatico</span> <span
-							class="label label-primary">gasolina</span> <span
-							class="label label-primary">no adeudo</span> <span
-							class="label label-primary">quemacocos</span> <span
-							class="label label-primary">mexicano</span>
-					</div>
+<!-- 					<div style="margin: 5px;"> -->
+<!-- 						<span class="label label-primary">automatico</span> <span -->
+<!-- 							class="label label-primary">gasolina</span> <span -->
+<!-- 							class="label label-primary">no adeudo</span> <span -->
+<!-- 							class="label label-primary">quemacocos</span> <span -->
+<!-- 							class="label label-primary">mexicano</span> -->
+<!-- 					</div> -->
 
 					<hr>
 					<div class="caption-full">
@@ -118,44 +111,13 @@
 							</h5>
 							<form class="form-inline">
 								<div class="form-group">
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">Cilindros</div>
-										<input type="text" class="form-control"
-											id="exampleInputAmount" value="5" readonly="readonly">
-									</div>
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">Motor</div>
-										<input type="text" class="form-control"
-											id="exampleInputAmount" value="2.5Lts" readonly="readonly">
-									</div>
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">A/C</div>
-										<input type="text" class="form-control"
-											id="exampleInputAmount" value="Si" readonly="readonly">
-									</div>
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">Transmision</div>
-										<input type="text" class="form-control"
-											id="exampleInputAmount" value="Tiptronic" readonly="readonly">
-									</div>
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">Combustible</div>
-										<input type="text" class="form-control"
-											id="exampleInputAmount" value="Gasolina" readonly="readonly">
-									</div>
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">Chasis</div>
-										<input type="text" class="form-control"
-											id="exampleInputAmount" value="Sedan" readonly="readonly">
-									</div>
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">Interior</div>
-										<input type="text" class="form-control"
-											id="exampleInputAmount" value="Piel" readonly="readonly">
-									</div>
-									<div class="input-group" style="margin: 5px;">
-										<div class="input-group-addon">Rendimiento</div>
-										<input type="text" class="form-control" id="exampleInputAmount" value="15Km/Lt" readonly="readonly">
+									<div class="input-group" style="margin: 5px;" th:each="feature : ${publication.generalInfoTable}">
+										<div class="input-group-addon" th:text="${#strings.listSplit(feature,'|')[0]}">Cilindros</div>
+										
+										<input th:if="${#arrays.length(#strings.listSplit(feature,'|')) gt 1}" type="text" class="form-control"
+											id="exampleInputAmount" th:value="${#strings.listSplit(feature,'|')[1]}" readonly="readonly">
+										<input th:if="${#arrays.length(#strings.listSplit(feature,'|')) lt 2}" type="text" class="form-control"
+											id="exampleInputAmount" th:value="${'No disponible'}" readonly="readonly">
 									</div>
 								</div>
 							</form>
@@ -184,12 +146,13 @@
 			<div class="col-md-3">
 				<p style="padding-top: 20px;" class="lead">Vendedor</p>
 				<div class="list-group">
-					<p class="list-group-item active">Miguel Ramos</p>
-					<p class="list-group-item">
+					<p class="list-group-item active" th:text="${publication.contactOwner}">Miguel Ramos</p>
+					<p class="list-group-item" th:text="${publication.contactOwnerPhone}">
 						<i class="fa fa-phone"></i> <abbr title="Telefono"> T1 </abbr>:
 						(614) 2452585
 					</p>
-					<p class="list-group-item">
+					
+					<p class="list-group-item" th:if="${false}" th:text="${publication.contactOwnerSecondPhone}">
 						<i class="fa fa-phone"></i> <abbr title="Telefono"> T2 </abbr>:
 						(614) 2462686
 					</p>
@@ -222,7 +185,7 @@
 	<!-- Animate the header -->
 	<script th:src="@{/js/cbpAnimatedHeader.min.js}"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-		<script type="text/javascript" th:src="@{js/jquery.colorbox-min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery.colorbox-min.js}"></script>
 		<script type="text/javascript">
 			$(document).on('cbox_open', function() {
 			    $('body').css({ overflow: 'hidden' });

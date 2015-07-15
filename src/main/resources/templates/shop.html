@@ -118,11 +118,12 @@
 					<div th:each="publication: ${publications}" class="col-sm-6 col-lg-6 col-md-6">
 						<div class="thumbnail">
 							<p th:text="'ID:'+${publication.id}"></p>
-							<a th:href="'/item/'+${publication.id}"><img th:src="@{http://placehold.it/280x180}" alt="" class="img-thumbnail" style="height: 180px; width: 280px;"></a>
+							<a th:href="'/item/'+${publication.id}"><img th:src="@{${publication.ogImage}}" alt="" class="img-thumbnail" style="height: 180px; width: 280px;"></a>
 							<div class="caption">
 								<h4 class="pull-right"><em th:text="${publication.price}">$170,000</em></h4>
 								<h4>
-									<a th:href="'/item/'+${publication.id}" th:text="${#strings.abbreviate(publication.title, 22)}" th:class="title-truncate">Jetta 2011 MK6</a>
+									<a th:href="'/item/'+${publication.id}" th:if="${#strings.length(publication.ogTitle)} gt 4" th:text="${#strings.abbreviate(publication.ogTitle, 22)}"></a>
+									<a th:href="'/item/'+${publication.id}" th:if="${#strings.length(publication.ogTitle)} lt 4" th:text="${#strings.abbreviate(publication.pageTitleExtended, 22)}"></a>
 								</h4>
 								<p th:if="${#strings.length(publication.comments)} gt 0" th:text="${#strings.abbreviate(publication.comments, 150)}">Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
