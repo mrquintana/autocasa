@@ -16,17 +16,17 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="css/fbootstrap.min.css" rel="stylesheet">
+	<link th:href="@{/css/fbootstrap.min.css}" rel="stylesheet">
 
 	<!-- colorbox plugin css -->
-	<link href="css/colorbox.css" rel="stylesheet">
+	<link th:href="@{/css/colorbox.css}" rel="stylesheet">
 	
 	<!-- Custom CSS -->
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/shop-item.css" rel="stylesheet">
+	<link th:href="@{/css/main.css}" rel="stylesheet">
+	<link th:href="@{/css/shop-item.css}" rel="stylesheet">
 	
 	<!-- Custom Fonts -->
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link th:href="@{/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
 
 	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
 	
@@ -50,12 +50,13 @@
 			<div class="col-md-9" style="background-color: rgba(0,0,0,0.07);">
 				<header style="margin-bottom: 20px;">
 					<div>
-						<h2 style="float: right;">
-							<strong th:text="${publication.price}">$170,000</strong>
-						</h2>
-						<h2 style="float: left;" th:text="${publication.title}">
+						<h3 th:text="${publication.title}">
 							Jetta 2011 MK6 Sport 2.5CIL
-						</h2>
+						</h3>
+						<h3>
+							<strong th:text="${publication.price}">$170,000</strong>
+						</h3>
+						
 					</div>
 					<div style="clear: both;"></div>
 				</header>
@@ -213,16 +214,15 @@
 	<!-- /.container -->
 
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
+	<script th:src="@{/js/jquery.js}"></script>
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/classie.js"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/classie.js}"></script>
 
 	<!-- Animate the header -->
-	<script src="js/cbpAnimatedHeader.min.js"></script>
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-		<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+	<script th:src="@{/js/cbpAnimatedHeader.min.js}"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+		<script type="text/javascript" th:src="@{js/jquery.colorbox-min.js}"></script>
 		<script type="text/javascript">
 			$(document).on('cbox_open', function() {
 			    $('body').css({ overflow: 'hidden' });

@@ -8,7 +8,7 @@ public class ShopCtrl {
 
 	@RequestMapping(value= {"/shop"})
 	public String showShop() {
-		return "shop";
+		return "redirect:/publications";
 	}
 	
 	@RequestMapping(value= {"/shoph"})

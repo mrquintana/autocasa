@@ -114,6 +114,12 @@ footer {
 }
 
 /* Responsive Styles */
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
 
 @media(max-width:991px) {
     .customer-img,

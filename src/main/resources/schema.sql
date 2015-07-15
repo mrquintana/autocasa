@@ -3,6 +3,7 @@ create table vehicles(
 	firstName varchar(150),
 	lastName varchar(15),
 );
+
 create table publications(
 	id identity,
 	title varchar(150),
