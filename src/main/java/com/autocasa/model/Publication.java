@@ -169,7 +169,6 @@ public class Publication {
 			}
     		featuresList.add(concatTds);
 		}
-    	System.out.println(featuresList);
         return featuresList;
     }
 

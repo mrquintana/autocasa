@@ -41,12 +41,16 @@
 
 	<!-- Page Content -->
 	<div class="container">
-		<!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"> <i class="fa fa-car">|<i class="fa fa-search"> 
-                </h1>
-                
+            		<div style="display: inline-block;">
+		                <h1 style="display: inline-block;" class="page-header"> <i class="fa fa-car">|<i class="fa fa-search"> 
+		                </h1>
+	                </div>
+	                <div style="display: inline-block;" class="alert alert-info alert-dismissible" role="alert">
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  Autocasa solo se dedica a brindar un servicio de publicaci&oacute;n. Tome sus debidas precauci&oacute;nes cuando quiera comprar un vehiculo o inmueble.
+					</div>
             </div>
         </div>
         <!-- /.row -->
@@ -60,34 +64,7 @@
 		</style>
 		
 		<div class="row">
-			<div class="col-md-3">
-                <div class="row" style="padding: 10px;">
-                	<div class="row" style="padding: 10px; margin-bottom:20px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;">
-	                	<strong>TU BUSQUEDA</strong>
-						<div th:replace="fragments/filters/house :: house-filter"></div>
-					</div>
-					<header><strong>Te podria interesar... </strong></header>
-					<div class="row" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
-					<figure class="interestFigure">
-						<img th:src="@{/img/car1.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;"">
-						<figcaption>Golf GTI, <strong>$65,000</strong></figcaption>
-					</figure>
-					</div>
-					<div class="row" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
-					<figure class="interestFigure">
-						<img th:src="@{/img/car3.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
-						<figcaption>Mercedes Benz, <strong>$26,000</strong></figcaption>
-					</figure>
-					</div>
-					<div class="row" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px; padding: 5px;">
-					<figure class="interestFigure">
-						<img th:src="@{/img/car4.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
-						<figcaption>BMW, <strong>$240,000</strong></figcaption>
-					</figure>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-9">
+			<div class="col-md-9 col-md-push-3">
 				<div  style="padding: 10px; margin-bottom:20px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px; vertical-align: top;">
 					<label for="selectOrder">Ordenar por: </label>
 					<select class="form-control" id="selectOrder" data-placeholder="Modelo" style="width: 25%;">
@@ -115,15 +92,15 @@
 				  </ul>
 				</nav>
 				<div class="row" style="margin-left:2px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;">
-					<div th:each="publication: ${publications}" class="col-sm-6 col-lg-6 col-md-6">
+					<div th:each="publication: ${publications}" class="col-md-6">
 						<div class="thumbnail">
 							<p th:text="'ID:'+${publication.id}"></p>
-							<a th:href="'/item/'+${publication.id}"><img th:src="@{${publication.ogImage}}" alt="" class="img-thumbnail" style="height: 180px; width: 280px;"></a>
+							<a th:href="'/item/'+${publication.id}" target="_blank"><img th:src="@{${publication.images[0]}}" alt="" class="img-thumbnail" style="height: 200px; width: 270px;"></a>
 							<div class="caption">
 								<h4 class="pull-right"><em th:text="${publication.price}">$170,000</em></h4>
 								<h4>
-									<a th:href="'/item/'+${publication.id}" th:if="${#strings.length(publication.ogTitle)} gt 4" th:text="${#strings.abbreviate(publication.ogTitle, 22)}"></a>
-									<a th:href="'/item/'+${publication.id}" th:if="${#strings.length(publication.ogTitle)} lt 4" th:text="${#strings.abbreviate(publication.pageTitleExtended, 22)}"></a>
+									<a th:href="'/item/'+${publication.id}" target="_blank" th:if="${#strings.length(publication.ogTitle)} gt 4" th:text="${#strings.abbreviate(publication.ogTitle, 18)}"></a>
+									<a th:href="'/item/'+${publication.id}" target="_blank" th:if="${#strings.length(publication.ogTitle)} lt 4" th:text="${#strings.abbreviate(publication.pageTitleExtended, 18)}"></a>
 								</h4>
 								<p th:if="${#strings.length(publication.comments)} gt 0" th:text="${#strings.abbreviate(publication.comments, 150)}">Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
@@ -149,6 +126,33 @@
 				    </li>
 				  </ul>
 				</nav>
+			</div>
+			<div class="col-md-3 col-md-pull-9">
+                <div class="row" style="padding: 10px;">
+                	<div class="row" style="padding: 10px; margin-bottom:20px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;" id="carFilter">
+	                	<strong>TU BUSQUEDA</strong>
+						<div th:replace="fragments/filters/house :: house-filter"></div>
+					</div>
+					<header><strong>Te podria interesar... </strong></header>
+					<div class="col-sm-4 col-md-12" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
+					<figure class="interestFigure">
+						<img th:src="@{/img/car1.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;"">
+						<figcaption>Golf GTI, <strong>$65,000</strong></figcaption>
+					</figure>
+					</div>
+					<div class="col-sm-4 col-md-12" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px;padding: 5px;">
+					<figure class="interestFigure">
+						<img th:src="@{/img/car3.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
+						<figcaption>Mercedes Benz, <strong>$26,000</strong></figcaption>
+					</figure>
+					</div>
+					<div class="col-sm-4 col-md-12" style="background-color: rgba(0,0,0,0.07);margin-bottom:20px;border-radius: 10px; padding: 5px;">
+					<figure class="interestFigure">
+						<img th:src="@{/img/car4.jpg}" alt="" style="width: 100%; margin: 0 auto; padding: 10px;" >
+						<figcaption>BMW, <strong>$240,000</strong></figcaption>
+					</figure>
+					</div>
+				</div>
 			</div>
 		</div>
 

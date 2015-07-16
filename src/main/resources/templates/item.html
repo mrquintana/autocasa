@@ -41,6 +41,19 @@
 
 <body>
 
+	<style>
+		
+		.sidebar-outer {
+		    position: relative;
+		}
+		
+		@media (min-width: 768px) {
+		    .sidebar {
+		        position: fixed;
+		    }
+		}
+		
+	</style>
 	<!-- Navigation -->
 	<div th:replace="fragments/general/header :: header"></div>
 
@@ -55,7 +68,7 @@
 						</h3>
 						<h3>
 							<strong th:text="${publication.price}">$170,000</strong>
-							<span>|</span>
+							<span th:if="${#strings.length(publication.price) gt 0}" th:text="${'|'}"></span>
 							<strong th:text="${publication.kilometers}">$170,000</strong>
 						</h3>
 						
@@ -65,7 +78,7 @@
 				<div class="thumbnail">
 					<!--  <img class="img-responsive" src="http://placehold.it/800x300" alt=""> -->
 					<div class="row">
-						<div class="col-xs-4" th:each="image: ${publication.images}">
+						<div class="col-xs-6 col-md-4" th:each="image: ${publication.images}">
 							<a class="group3" th:href="@{${image}}" title="Subido Junio 19 2015"><img th:alt="image" th:src="@{${image}}" class="img-thumbnail"></a>
 						</div>
 					</div>
@@ -143,23 +156,28 @@
 				<!--  -->
 			</div>
 
-			<div class="col-md-3">
-				<p style="padding-top: 20px;" class="lead"><h1>Vendedor</h1></p>
-				<div class="list-group">
-					<p class="list-group-item active" th:text="${publication.contactOwner}">Miguel Ramos</p>
-					<p class="list-group-item" th:text="${publication.contactOwnerPhone}">
-						<i class="fa fa-phone"></i> <abbr title="Telefono"> T1 </abbr>:
-						(614) 2452585
-					</p>
-					
-					<p class="list-group-item" th:if="${false}" th:text="${publication.contactOwnerSecondPhone}">
-						<i class="fa fa-phone"></i> <abbr title="Telefono"> T2 </abbr>:
-						(614) 2462686
-					</p>
-<!-- 					<p class="list-group-item"> -->
-<!-- 						<i class="fa fa-envelope-o"></i> <abbr title="Email"> E </abbr>: <a -->
-<!-- 							href="mailto:migue1990@gmail.com">migue1990@gmail.com</a> -->
-<!-- 					</p> -->
+			<div class="col-md-3 sidebar-outer">
+				<div class="sidebar">
+					<header style="padding-top: 20px;" class="lead"><h1>Vendedor</h1></header>
+					<div class="list-group">
+						<p class="list-group-item active" th:text="${publication.contactOwner}">Miguel Ramos</p>
+						<p class="list-group-item">
+							<i class="fa fa-phone"></i> <abbr title="Telefono">T:</abbr> <span th:text="${publication.contactOwnerPhone}"></span> 
+						</p>
+						
+						<p class="list-group-item" th:if="${false}" th:text="${publication.contactOwnerSecondPhone}">
+							<i class="fa fa-phone"></i> <abbr title="Telefono"> T2 </abbr>:
+							(614) 2462686
+						</p>
+						<p class="list-group-item" th:if="${false}" th:text="${publication.contactOwnerSecondPhone}">
+							<i class="fa fa-phone"></i> <abbr title="Telefono"> T2 </abbr>:
+							(614) 2462686
+						</p>
+	<!-- 					<p class="list-group-item"> -->
+	<!-- 						<i class="fa fa-envelope-o"></i> <abbr title="Email"> E </abbr>: <a -->
+	<!-- 							href="mailto:migue1990@gmail.com">migue1990@gmail.com</a> -->
+	<!-- 					</p> -->
+					</div>
 				</div>
 			</div>
 
