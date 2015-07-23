@@ -48,6 +48,7 @@
 		                </h1>
 	                </div>
 	                <div style="display: inline-block;" class="alert alert-info alert-dismissible" role="alert">
+	                	  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						  Autocasa solo se dedica a brindar un servicio de publicaci&oacute;n. Tome sus debidas precauci&oacute;nes cuando quiera comprar un vehiculo o inmueble.
 					</div>
@@ -84,7 +85,7 @@
 				      </a>
 				    </li>
 				    <li th:each="i : ${#numbers.sequence( beginIndex, endIndex)}" th:class="${i==currentIndex}?active:inactive"><a th:href="@{${i}}" th:text="${i}"></a></li>
-				    <li>
+				    <li th:if="${currentIndex lt publications.totalPages}">
 				      <a th:href="${currentIndex+1}" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
 				      </a>
@@ -93,14 +94,14 @@
 				</nav>
 				<div class="row" style="margin-left:2px; background-color: rgba(0,0,0,0.07); border-radius: 12px; -moz-border-radius: 12px;">
 					<div th:each="publication: ${publications}" class="col-md-6">
-						<div class="thumbnail">
+						<div class="thumbnail" data-toggle="tooltip" data-placement="bottom" th:title="${publication.pageTitleExtended}">
 							<p th:text="'ID:'+${publication.id}"></p>
-							<a th:href="'/item/'+${publication.id}" target="_blank"><img th:src="@{${publication.images[0]}}" alt="" class="img-thumbnail" style="height: 200px; width: 270px;"></a>
+							<a th:href="'/item/'+${publication.id}"><img th:src="@{${publication.images[0]}}" class="img-thumbnail" style="height: 200px; width: 270px;"></a>
 							<div class="caption">
 								<h4 class="pull-right"><em th:text="${publication.price}">$170,000</em></h4>
 								<h4>
-									<a th:href="'/item/'+${publication.id}" target="_blank" th:if="${#strings.length(publication.ogTitle)} gt 4" th:text="${#strings.abbreviate(publication.ogTitle, 18)}"></a>
-									<a th:href="'/item/'+${publication.id}" target="_blank" th:if="${#strings.length(publication.ogTitle)} lt 4" th:text="${#strings.abbreviate(publication.pageTitleExtended, 18)}"></a>
+									<a th:href="'/item/'+${publication.id}" th:if="${#strings.length(publication.ogTitle)} gt 4" th:text="${#strings.abbreviate(publication.ogTitle, 18)}"></a>
+									<a th:href="'/item/'+${publication.id}" th:if="${#strings.length(publication.ogTitle)} lt 4" th:text="${#strings.abbreviate(publication.pageTitleExtended, 18)}"></a>
 								</h4>
 								<p th:if="${#strings.length(publication.comments)} gt 0" th:text="${#strings.abbreviate(publication.comments, 150)}">Como nuevo, no le duele nada, servicio recien hecho.
 									Economico, acepto financiamiento con banco Banamex. Tomo
@@ -180,6 +181,7 @@
     <script type="text/javascript">
     $( document ).ready(function() {
         $('select').select2();
+        $('[data-toggle="tooltip"]').tooltip();
     });
     </script>
 

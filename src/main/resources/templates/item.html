@@ -66,12 +66,19 @@
 						<h3 th:text="${publication.pageTitleExtended}">
 							Jetta 2011 MK6 Sport 2.5CIL
 						</h3>
-						<h3>
-							<strong th:text="${publication.price}">$170,000</strong>
-							<span th:if="${#strings.length(publication.price) gt 0}" th:text="${'|'}"></span>
-							<strong th:text="${publication.kilometers}">$170,000</strong>
-						</h3>
-						
+						<div>
+							<h3 style="display: inline-block;">
+								<strong th:text="${publication.price}">$170,000</strong>
+								<span th:if="${#strings.length(publication.price) gt 0}" th:text="${'|'}"></span>
+								<strong th:text="${publication.kilometers}">50km</strong>
+							</h3>
+							<div class="btn-group" style="display: inline-block;float: right; margin-top: 15px;">
+								<button type="button" class="btn btn-primary" aria-label="Left Align"><span class="fa fa-arrow-left" aria-hidden="true"></span></button>
+						        <button type="button" class="btn btn-primary" aria-label="Center Align"><span class="fa fa-eye" aria-hidden="true"></span></button>
+						        <button type="button" class="btn btn-primary" aria-label="Right Align"><span class="fa fa-random" aria-hidden="true"></span></button>
+						        <button type="button" class="btn btn-primary" aria-label="Justify"><span class="fa fa-arrow-right" aria-hidden="true"></span></button>
+							</div>
+						</div>
 					</div>
 					<div style="clear: both;"></div>
 				</header>
