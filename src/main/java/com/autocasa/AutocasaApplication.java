@@ -13,6 +13,7 @@ public class AutocasaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AutocasaApplication.class, args);
 	}
+	/*
 	@Bean
 	public JpaVendorAdapter jpaVendorAdapter() {
 	    HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
@@ -20,5 +21,5 @@ public class AutocasaApplication {
 	    hibernateJpaVendorAdapter.setGenerateDdl(true); //Auto creating scheme when true
 	    hibernateJpaVendorAdapter.setDatabase(Database.H2);//Database type
 	    return hibernateJpaVendorAdapter;
-	}
+	}*/
 }
